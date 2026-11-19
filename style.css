@@ -71,28 +71,64 @@ body {
 
 /* 2. Блок кнопок навигации */
 .navigation {
-    margin-top: 30px;    /* Отступ КНОПОК вверх от полупрозрачной шапки */
-    margin-bottom: 60px; /* ОТСТУП ВНИЗ до первой карточки шаблона (уменьшай или увеличивай это число) */
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+    margin-top: 24px;    /* Отступ кнопок сверху */
+    margin-bottom: 40px; /* Отступ вниз до первой карточки */
     display: flex;
-    gap: 15px;           /* Расстояние между самими кнопками */
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;           /* Расстояние между кнопками */
 }
 
 .nav-btn {
-    text-decoration: none; /* Убираем подчеркивание у ссылок */
-    color: #1d1200; /* Темный изящный цвет для текста букв */
+    flex: 1 1 0;         /* Все три кнопки одинаковой ширины */
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap; /* Запрещаем перенос «День рождения» на 2 строки */
+    color: #1d1200;
     background: rgba(255, 255, 255, 0.31);
-    padding: 12px 30px;
-    border-radius: 15px; /* Закругленные углы как на макете */
-    font-size: 16px;
+    backdrop-filter: blur(10px);
+    padding: 10px 8px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.2;
     font-family: 'Montserrat Alternates', sans-serif;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    transition: all 0.3s ease; /* Плавный эффект при наведении */
+    transition: all 0.3s ease;
 }
 
-/* Эффект при наведении мышки на кнопку */
 .nav-btn:hover {
     background: rgba(255, 255, 255, 0.6);
-    transform: translateY(-2px); /* Кнопка слегка приподнимается */
+    transform: translateY(-2px);
+}
+
+/* Адаптация под мобильные экраны */
+@media (max-width: 480px) {
+    .navigation {
+        padding: 0 14px;
+        gap: 8px;
+        margin-top: 18px;
+        margin-bottom: 28px;
+    }
+
+    .nav-btn {
+        padding: 9px 6px;
+        font-size: 12.5px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-btn {
+        font-size: 11px;
+        padding: 8px 4px;
+    }
 }
 /* 3. Контентная область */
 .main-content {
